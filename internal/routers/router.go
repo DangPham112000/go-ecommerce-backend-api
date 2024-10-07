@@ -2,11 +2,14 @@ package routers
 
 import (
 	c "github.com/DangPham112000/go-ecommerce-backend-api/internal/controller"
+	"github.com/DangPham112000/go-ecommerce-backend-api/internal/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.Default()
+
+	r.Use(middlewares.AuthenMiddleware())
 
 	v1 := r.Group("/v1/2024")
 	{
