@@ -9,3 +9,5 @@
 {"level":"INFO","time":"2024-10-08T12:13:59.705+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-08T13:16:25.599+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
 {"level":"INFO","time":"2024-10-08T13:16:25.600+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-08T16:02:13.402+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-08T16:02:13.403+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}

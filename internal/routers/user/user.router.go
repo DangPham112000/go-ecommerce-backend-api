@@ -1,14 +1,18 @@
 package user
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/DangPham112000/go-ecommerce-backend-api/internal/wire"
+	"github.com/gin-gonic/gin"
+)
 
 type UserRouter struct{}
 
 func (ur *UserRouter) InitUserRouter(router *gin.RouterGroup) {
 	// public router
+	userController, _ := wire.InitUserRouterHandler()
 	userRouterPublic := router.Group("/user")
 	{
-		userRouterPublic.POST("/register")
+		userRouterPublic.POST("/register", userController.Register)
 		userRouterPublic.POST("/otp")
 	}
 	// private router
