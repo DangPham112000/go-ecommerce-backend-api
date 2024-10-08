@@ -16,11 +16,11 @@ func LoadConfig() {
 	// read configuration
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("Failed to read configuration %w \n", err))
+		panic(fmt.Errorf("failed to read configuration %w", err))
 	}
 
 	err = viper.Unmarshal(&global.Config)
 	if err != nil {
-		fmt.Println("Unable to decode configuration %v", err)
+		fmt.Printf("Unable to decode configuration %v", err)
 	}
 }

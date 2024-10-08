@@ -1,36 +1,42 @@
 package initialize
 
 import (
-	c "github.com/DangPham112000/go-ecommerce-backend-api/internal/controller"
-	"github.com/DangPham112000/go-ecommerce-backend-api/internal/middlewares"
+	"github.com/DangPham112000/go-ecommerce-backend-api/global"
+	"github.com/DangPham112000/go-ecommerce-backend-api/internal/routers"
 	"github.com/gin-gonic/gin"
 )
 
 func InitRouter() *gin.Engine {
-	r := gin.Default()
-
-	r.Use(middlewares.AuthenMiddleware())
-
-	v1 := r.Group("/v1/2024")
-	{
-		v1.GET("/ping", c.NewPongController().Pong)          // /v1/2024/ping
-		v1.GET("/user/1", c.NewUserController().GetUserByID) // /v1/2024/ping
-		// v1.PUT("/ping", Pong)
-		// v1.PATCH("/ping", Pong)
-		// v1.DELETE("/ping", Pong)
-		// v1.HEAD("/ping", Pong)
-		// v1.OPTIONS("/ping", Pong)
+	var r *gin.Engine
+	if global.Config.Server.Mode == "dev" {
+		gin.SetMode(gin.DebugMode)
+		gin.ForceConsoleColor()
+		r = gin.Default()
+	} else {
+		gin.SetMode(gin.ReleaseMode)
+		r = gin.New()
 	}
 
-	// v2 := r.Group("/v2/2024")
-	// {
-	// 	v2.GET("/ping", Pong) // /v2/2024/ping
-	// 	v2.PUT("/ping", Pong)
-	// 	v2.PATCH("/ping", Pong)
-	// 	v2.DELETE("/ping", Pong)
-	// 	v2.HEAD("/ping", Pong)
-	// 	v2.OPTIONS("/ping", Pong)
-	// }
+	// middlewares
+	// r.Use() // logging
+	// r.Use() // cross
+	// r.Use()	// limiter global
+
+	manageRouter := routers.RouterGroupApp.Manage
+	userRouter := routers.RouterGroupApp.User
+
+	MainGroup := r.Group("/v1/2024")
+	{
+		MainGroup.GET("/check_status") // track monitor
+	}
+	{
+		manageRouter.InitUserRouter(MainGroup)
+		manageRouter.InitAdminRouter(MainGroup)
+	}
+	{
+		userRouter.InitProductRouter(MainGroup)
+		userRouter.InitUserRouter(MainGroup)
+	}
 
 	return r
 }
