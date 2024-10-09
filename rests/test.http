@@ -1,0 +1,10 @@
+
+###abc
+
+GET http://localhost:8002/v1/2024/check_status
+
+
+
+#aasdkjh
+
+POST http://localhost:8001/v1/2024/alos

@@ -12,11 +12,11 @@ var ctx = context.Background()
 
 func InitRedis() {
 	r := global.Config.Redis
-
+	s := fmt.Sprintf("%s:%v", r.Host, r.Port)
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     fmt.Sprintf("%s:%v", r.Host, r.Port), // "localhost:6379",
-		Password: r.Password,                           // no password set
-		DB:       r.Database,                           // use default DB
+		Addr:     s,          // "localhost:6379",
+		Password: r.Password, // no password set
+		DB:       r.Database, // use default DB
 		PoolSize: 10,
 	})
 
@@ -26,7 +26,8 @@ func InitRedis() {
 		global.Logger.Error("Redis initialization error")
 	}
 
-	fmt.Println("Redis is running")
+	global.Logger.Info("Redis initialization success!!!")
+	// global.Logger.Info(fmt.Sprintf("Redis initialization success!!! s=%v", s))
 
 	global.Rbd = rdb
 

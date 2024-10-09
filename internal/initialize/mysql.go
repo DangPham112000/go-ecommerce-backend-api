@@ -29,6 +29,7 @@ func InitMysql() {
 	})
 	checkErrorPanic(err, "Mysql initialization error")
 	global.Logger.Info("Mysql initialization success!!!")
+	// global.Logger.Info(fmt.Sprintf("Mysql initialization success!!! s=%v", s))
 	global.Mdb = db
 
 	SetPool()
