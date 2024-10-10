@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/DangPham112000/go-ecommerce-backend-api/global"
-	"github.com/DangPham112000/go-ecommerce-backend-api/internal/po"
 	"go.uber.org/zap"
 	"gorm.io/driver/mysql"
+	"gorm.io/gen"
 	"gorm.io/gorm"
 )
 
@@ -33,7 +33,8 @@ func InitMysql() {
 	global.Mdb = db
 
 	SetPool()
-	migrateTables()
+	genTableDAO()
+	// migrateTables()
 }
 
 func SetPool() {
@@ -47,9 +48,21 @@ func SetPool() {
 	sqlDb.SetConnMaxLifetime(time.Duration(m.ConnMaxLifetime))
 }
 
-func migrateTables() {
-	err := global.Mdb.AutoMigrate(&po.User{}, &po.Role{})
-	if err != nil {
-		fmt.Println("Tables Migration error")
-	}
+func genTableDAO() {
+	// Initiate the tables
+	g := gen.NewGenerator(gen.Config{
+		OutPath: "./internal/model",
+		Mode:    gen.WithoutContext | gen.WithDefaultQuery | gen.WithQueryInterface,
+	})
+	g.UseDB(global.Mdb)
+	g.GenerateModel("go_crm_user")
+	g.Execute()
+
 }
+
+// func migrateTables() {
+// 	err := global.Mdb.AutoMigrate(&po.User{}, &po.Role{})
+// 	if err != nil {
+// 		fmt.Println("Tables Migration error")
+// 	}
+// }

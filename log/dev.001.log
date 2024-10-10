@@ -11,3 +11,27 @@
 {"level":"INFO","time":"2024-10-08T13:16:25.600+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-08T16:02:13.402+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
 {"level":"INFO","time":"2024-10-08T16:02:13.403+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T14:35:42.076+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T14:35:42.078+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T14:35:42.120+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T15:47:57.749+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T15:47:57.750+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T15:47:57.764+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:19:26.292+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T17:19:26.293+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:19:26.306+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:26:12.253+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T17:26:12.254+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:26:12.267+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-10T17:26:19.710+0700","caller":"sendto/sendto.go:105","msg":"Email send failed::","error":"dial tcp: lookup email-......: no such host"}
+{"level":"INFO","time":"2024-10-10T17:34:43.713+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T17:34:43.713+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:34:43.726+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-10T17:34:55.338+0700","caller":"sendto/sendto.go:105","msg":"Email send failed::","error":"dial tcp: lookup email-1234 on 127.0.0.53:53: server misbehaving"}
+{"level":"INFO","time":"2024-10-10T17:45:46.172+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T17:45:46.173+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T17:45:46.186+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-10T17:45:52.208+0700","caller":"sendto/sendto.go:105","msg":"Email send failed::","error":"535 5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 98e67ed59e1d1-2e2a55e153dsm3302806a91.11 - gsmtp"}
+{"level":"INFO","time":"2024-10-10T18:03:02.656+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T18:03:02.657+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T18:03:02.670+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
