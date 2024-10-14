@@ -35,3 +35,10 @@
 {"level":"INFO","time":"2024-10-10T18:03:02.656+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
 {"level":"INFO","time":"2024-10-10T18:03:02.657+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-10T18:03:02.670+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T18:32:00.184+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-10T18:32:00.185+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-10T18:32:00.198+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-14T15:10:52.907+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-14T15:10:52.909+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-14T15:10:52.928+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-14T15:10:52.929+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}

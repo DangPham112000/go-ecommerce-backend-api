@@ -1,0 +1,31 @@
+server:
+  port: 8002
+  mode: dev
+mysql:
+  host: 127.0.0.1 # if you run Go app Outside Docker
+  # host: mysql_container # if you run Go app with docker compose 
+  port: 3306
+  username: root
+  password: root1234
+  dbname: shopgolang
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connMaxLifetime: 3600
+logger:
+  logLevel: debug
+  filename:   "./log/dev.001.log"
+  maxSize:    500
+  maxBackups: 3
+  maxAge:     28
+  compress:   true
+redis:
+  host: 127.0.0.1 # if you run Go app Outside Docker
+  # host: redis_container # if you run Go app with docker compose 
+  port: 6379
+  password:
+  database: 0
+smtp:
+  host: "smtp.gmail.com"
+  port: 587
+  username: ""
+  password: ""
