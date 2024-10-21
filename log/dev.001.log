@@ -42,3 +42,7 @@
 {"level":"INFO","time":"2024-10-14T15:10:52.909+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-14T15:10:52.928+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-14T15:10:52.929+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-21T19:45:18.704+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-21T19:45:18.705+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-21T19:45:18.723+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-21T19:45:18.724+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}

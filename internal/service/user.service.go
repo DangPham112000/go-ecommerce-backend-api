@@ -40,26 +40,32 @@ func (us *userService) Register(email string, purpose string) int {
 		return response.ErrCodeUserHasExist
 	}
 
-	// 3. gen OTP
+	// 3. Gen OTP
 	otp := random.GenerateSixDigitOTP()
 	if purpose == "TEST_USER" {
 		otp = 123456
 	}
 	fmt.Printf("OTP:::%d\n", otp)
 
-	// 4. save OTP with expiration time
+	// 4. Save OTP with expiration time
 	err := us.userAuthRepo.AddOTP(hashEmail, otp, int64(10*time.Minute))
 	if err != nil {
 		return response.ErrCodeInvalidOTP
 	}
 
-	// 5.Send Email OTP
-	err = sendto.SendTemplateEmailOTP(
-		[]string{email},
-		"dangpham112000@gmail.com",
-		"otp-auth.html",
-		map[string]interface{}{"otp": strconv.Itoa(otp)},
-	)
+	// 5. Send Email OTP
+	// err = sendto.SendTemplateEmailOTP(
+	// 	[]string{email},
+	// 	"dangpham112000@gmail.com",
+	// 	"otp-auth.html",
+	// 	map[string]interface{}{"otp": strconv.Itoa(otp)},
+	// )
+	// if err != nil {
+	// 	return response.ErrCodeFailEmailOTP
+	// }
+
+	// 5. Request JAVA send OTP
+	err = sendto.SendEmailToJavaAPI(strconv.Itoa(otp), email, "authentication")
 	if err != nil {
 		return response.ErrCodeFailEmailOTP
 	}
