@@ -16,6 +16,7 @@ func Run() {
 	InitMysql()
 	InitMysqlC()
 	InitRedis()
+	InitKafka()
 	r := InitRouter()
 	r.Run(":8002")
 }
