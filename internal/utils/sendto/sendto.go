@@ -38,7 +38,7 @@ func SendTextEmailOTP(to []string, from string, otp string) error {
 		From:    EmailAddress{Address: from, Name: "test"},
 		To:      to,
 		Subject: "OTP Verification",
-		Body:    fmt.Sprintf("Your OTP is %s. Please enter it to verify your account.", otp),
+		Body:    fmt.Sprintf("Your OTP is %s.\n Please enter it to verify your account.", otp),
 	}
 
 	messageMail := BuildMessage(contentMail)

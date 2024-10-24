@@ -106,3 +106,23 @@
 {"level":"INFO","time":"2024-10-22T16:29:59.860+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-22T16:29:59.874+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
 {"level":"INFO","time":"2024-10-22T16:29:59.874+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:43:14.173+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-24T20:43:14.174+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:43:14.189+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:43:14.190+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-24T20:45:14.557+0700","caller":"account/login_controller.go:36","msg":"Error registration user OTP","error":"key does not exist"}
+{"level":"INFO","time":"2024-10-24T20:48:03.898+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-24T20:48:03.899+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:48:03.912+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:48:03.913+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-24T20:49:18.477+0700","caller":"account/login_controller.go:36","msg":"Error registration user OTP","error":"Error 1062 (23000): Duplicate entry 'haidangpham112000+002@gmail.com' for key 'pre_go_acc_user_verify_9999.unique_verify_key'"}
+{"level":"INFO","time":"2024-10-24T20:55:05.059+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-24T20:55:05.060+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:55:05.074+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:55:05.074+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-24T20:55:18.939+0700","caller":"account/login_controller.go:36","msg":"Error registration user OTP","error":"Error 1062 (23000): Duplicate entry 'haidangpham112000+003@gmail.com' for key 'pre_go_acc_user_verify_9999.unique_verify_key'"}
+{"level":"INFO","time":"2024-10-24T20:56:16.135+0700","caller":"initialize/run.go:15","msg":"Config ok!","ok":"success"}
+{"level":"INFO","time":"2024-10-24T20:56:16.137+0700","caller":"initialize/mysql.go:31","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:56:16.148+0700","caller":"initialize/mysqlc.go:27","msg":"Mysql initialization success!!!"}
+{"level":"INFO","time":"2024-10-24T20:56:16.149+0700","caller":"initialize/redis.go:29","msg":"Redis initialization success!!!"}
+{"level":"ERROR","time":"2024-10-24T20:56:24.979+0700","caller":"account/login_controller.go:36","msg":"Error registration user OTP","error":"Error 1062 (23000): Duplicate entry 'haidangpham112000+003@gmail.com' for key 'pre_go_acc_user_verify_9999.unique_verify_key'"}
