@@ -11,7 +11,11 @@ dcup:
 	sudo docker compose up -d 
 dcdown:
 	sudo docker compose down
-
+up_by_one:
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) up-by-one
+# create a new migration
+create_migration:
+	@goose -dir=$(GOOSE_MIGRATION_DIR) create $(name) sql
 upse:
 	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) up
 downse:

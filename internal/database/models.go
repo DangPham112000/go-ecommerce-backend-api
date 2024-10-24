@@ -4,19 +4,32 @@
 
 package database
 
-// Account
-type PreGoCrmUserC struct {
-	UsrID             uint32
-	UsrEmail          string
-	UsrPhone          string
-	UsrUsername       string
-	UsrPassword       string
-	UsrCreatedAt      int32
-	UsrUpdatedAt      int32
-	UsrCreateIpAt     string
-	UsrLastLoginAt    int32
-	UsrLastLoginIpAt  string
-	UsrLastLoginTimes int32
-	// Status 1:enable, 0:disable, -1:deleted
-	UsrStatus int8
+import (
+	"database/sql"
+)
+
+type PreGoAccUserBase9999 struct {
+	UserID         int32
+	UserAccount    string
+	UserPassowrd   string
+	UserSalt       string
+	UserLoginTime  sql.NullTime
+	UserLogoutTime sql.NullTime
+	UserLoginIp    sql.NullString
+	UserCreatedAt  sql.NullTime
+	UserUpdatedAt  sql.NullTime
+}
+
+type PreGoAccUserVerify9999 struct {
+	VerifyID      int32
+	VerifyOtp     string
+	VerifyKey     string
+	VerifyKeyHash string
+	VerifyType    sql.NullInt32
+	// 0-No, 1-Yes
+	IsVerified sql.NullInt32
+	// 0-No, 1-Yes
+	IsDeleted       sql.NullInt32
+	VerifyCreatedAt sql.NullTime
+	VerifyUpdatedAt sql.NullTime
 }
