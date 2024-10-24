@@ -1,6 +1,6 @@
 @baseUrl=http://localhost:8002/v1/2024
 
-POST {{baseUrl}}/user/register
+POST {{baseUrl}}/user/login
 Content-Type: application/json
 
 {
