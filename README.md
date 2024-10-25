@@ -34,3 +34,11 @@ open coverage.html
 Run all necessary services (mysql, redis, kafka, kafka-ui) before run app: `make dcup`
 
 Run app: `make dev`
+
+# APP
+
+## Register flow
+
+1. User enter email -> Send OTP to User email
+2. User enter OTP -> Verify OTP -> Send token to User
+3. User enter password & token -> Verify token -> Done

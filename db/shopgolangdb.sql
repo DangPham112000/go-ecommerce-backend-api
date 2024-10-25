@@ -1,7 +1,7 @@
 
 -----
-DROP TABLE IF EXISTS `pre_go_acc_user_9999`;
-CREATE TABLE `pre_go_acc_user_9999` (
+DROP TABLE IF EXISTS `pre_go_acc_user_info_9999`;
+CREATE TABLE `pre_go_acc_user_info_9999` (
     `user_id` bigint unsigned NOT NULL AUTO_INCREMENT,
     `user_account` varchar(255) NOT NULL,
     `user_nickname` varchar(255) DEFAULT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `pre_go_acc_user_9999` (
     `user_gender` tinyint unsigned DEFAULT NULL COMMENT '0-Secret, 1-Male, 2-Female',
     `user_birthday` date DEFAULT NULL,
     `user_email` varchar(255) DEFAULT NULL,
-    `user_is_authentication` tinyint unsigned NOT NULL '0-Not Authenticated, 1-Authenticated',
+    `user_is_authentication` tinyint unsigned NOT NULL COMMENT '0-Not Authenticated, 1-Authenticated',
     `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
     `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (`user_id`),
