@@ -1,6 +1,8 @@
 package account
 
 import (
+	"fmt"
+
 	"github.com/DangPham112000/go-ecommerce-backend-api/global"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/model"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/service"
@@ -13,6 +15,32 @@ import (
 var UserLogin = new(cUserLogin)
 
 type cUserLogin struct{}
+
+// Verify User Login OTP
+// @Summary      Verify User Login OTP
+// @Description  Verify User Login OTP
+// @Tags         account management
+// @Accept       json
+// @Produce      json
+// @Param        payload body model.VerifyInput true "payload"
+// @Success      200  {object}  response.ResponseData
+// @Failure      500  {object}  response.ErrorResponseData
+// @Router       /user/verify_account [post]
+func (c *cUserLogin) VerifyOTP(ctx *gin.Context) {
+	var params model.VerifyInput
+	err := ctx.ShouldBindJSON(&params)
+	if err != nil {
+		response.ErrorResponse(ctx, response.ErrCodeInvalidParam, err.Error())
+		return
+	}
+	result, err := service.UserLogin().VerifyOTP(ctx, &params)
+	if err != nil {
+		fmt.Printf("Error:: %v\n", err)
+		response.ErrorResponse(ctx, response.ErrCodeInvalidOTP, err.Error())
+		return
+	}
+	response.SuccessResponse(ctx, response.ErrCodeSuccess, result)
+}
 
 func (c *cUserLogin) Login(ctx *gin.Context) {
 	err := service.UserLogin().Login(ctx)

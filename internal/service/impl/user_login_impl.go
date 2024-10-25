@@ -110,8 +110,42 @@ func (s *sUserLogin) Register(ctx context.Context, in *model.RegisterInput) (cod
 	return response.ErrCodeSuccess, nil
 }
 
-func (s *sUserLogin) VerifyOTP(ctx context.Context) error {
-	return nil
+/*
+1. Hash key - email
+2. Check OTP from Redis
+3. Check OTP from Mysql
+4. Handle if already used OTP
+5. Update OTP status
+*/
+func (s *sUserLogin) VerifyOTP(ctx context.Context, in *model.VerifyInput) (out model.VerifyOTPOutput, err error) {
+	hashKey := crypto.GetHash(strings.ToLower(in.VerifyKey))
+
+	otpFound, err := global.Rbd.Get(ctx, utils.GetUserKey(hashKey)).Result()
+	if err != nil {
+		return out, err
+	}
+	if in.VerifyCode != otpFound {
+		// TODO: Logic for wrong otp too much in a short time (3times in 1m)
+		return out, err
+	}
+	infoOTP, err := s.r.GetInfoOTP(ctx, hashKey)
+	if err != nil {
+		return out, err
+	}
+	if infoOTP.IsVerified == (sql.NullInt32{Int32: 1}) {
+		// TODO: Handle already used OTP
+		return out, fmt.Errorf("OTP is already used")
+	}
+
+	err = s.r.UpdateUserVerificationStatus(ctx, hashKey)
+	if err != nil {
+		return out, err
+	}
+
+	out.Token = infoOTP.VerifyKeyHash // TODO: Should create serect key
+	out.Message = "success"
+
+	return out, nil
 }
 
 func (s *sUserLogin) UpdatePasswordRegister(ctx context.Context) error {
