@@ -21,3 +21,13 @@ type UpdatePasswordRegisterInput struct {
 	UserToken    string `json:"user_token"`
 	UserPassowrd string `json:"user_password"`
 }
+
+type LoginInput struct {
+	UserAccount  string `json:"user_account"`
+	UserPassowrd string `json:"user_password"`
+}
+
+type LoginOutput struct {
+	Token   string `json:"token"`
+	Message string `json:"message"`
+}

@@ -28,3 +28,8 @@ func HashPassword(password string, salt string) string {
 	hashPass := sha256.Sum256(([]byte(passSalt)))
 	return hex.EncodeToString(hashPass[:])
 }
+
+func MatchingPassword(storeHash string, password string, salt string) bool {
+	hashedPass := HashPassword(password, salt)
+	return hashedPass == storeHash
+}

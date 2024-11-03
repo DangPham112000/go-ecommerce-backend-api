@@ -69,12 +69,18 @@ func (c *cUserLogin) VerifyOTP(ctx *gin.Context) {
 }
 
 func (c *cUserLogin) Login(ctx *gin.Context) {
-	err := service.UserLogin().Login(ctx)
+	var params model.LoginInput
+	err := ctx.ShouldBindJSON(&params)
 	if err != nil {
 		response.ErrorResponse(ctx, response.ErrCodeInvalidParam, err.Error())
 		return
 	}
-	response.SuccessResponse(ctx, response.ErrCodeSuccess, nil)
+	code, result, err := service.UserLogin().Login(ctx, &params)
+	if err != nil {
+		response.ErrorResponse(ctx, response.ErrCodeInvalidParam, err.Error())
+		return
+	}
+	response.SuccessResponse(ctx, code, result)
 }
 
 // User Registration documentation

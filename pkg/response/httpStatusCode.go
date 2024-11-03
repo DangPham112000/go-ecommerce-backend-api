@@ -8,6 +8,8 @@ const (
 	ErrCodeInvalidOTP   = 3002
 	ErrCodeInvalidParam = 3003
 	ErrCodeFailEmailOTP = 3004
+	// User Authentication
+	ErrCodeAuthFail = 4005
 	// Register code
 	ErrCodeUserHasExist = 5001 // User has already registered
 
@@ -31,4 +33,5 @@ var msg = map[int]string{
 	ErrCodeOtpNotExist:           "OTP not exists",
 	ErrCodeExistButNotRegistered: "OTP exists but not registered",
 	ErrCodeUserOtpNotExist:       "User OTP not exists",
+	ErrCodeAuthFail:              "Authentication failed",
 }
