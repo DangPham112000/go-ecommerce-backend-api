@@ -33,7 +33,22 @@ func NewUserLoginImpl(r *database.Queries) *sUserLogin {
 	}
 }
 
-// Implement the IUserLogin here
+// ----- TWO-FACTOR AUTHENTICATION -----
+
+func (s *sUserLogin) IsTwoFactorEnable(ctx context.Context, userId int) (codeResult int, rs bool, err error) {
+	return 200, true, nil
+}
+
+func (s *sUserLogin) SetupTwoFactorAuth(ctx context.Context, in *model.SetupTwoFactorAuthInput) (codeResult int, err error) {
+	return 200, nil
+}
+
+func (s *sUserLogin) VerifyTwoFactorAuth(ctx context.Context, in *model.TwoFactorVerificationInput) (codeResult int, err error) {
+	return 200, nil
+}
+
+// ----- END TWO-FACTOR AUTHENTICATION -----
+
 func (s *sUserLogin) Login(ctx context.Context, in *model.LoginInput) (codeResult int, out model.LoginOutput, err error) {
 	userBase, err := s.r.GetOneUserInfo(ctx, in.UserAccount)
 	if err != nil {
