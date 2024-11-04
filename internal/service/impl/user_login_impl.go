@@ -15,6 +15,7 @@ import (
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/database"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/model"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/utils"
+	"github.com/DangPham112000/go-ecommerce-backend-api/internal/utils/auth"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/utils/crypto"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/utils/random"
 	"github.com/DangPham112000/go-ecommerce-backend-api/internal/utils/sendto"
@@ -72,8 +73,12 @@ func (s *sUserLogin) Login(ctx context.Context, in *model.LoginInput) (codeResul
 	if err != nil {
 		return response.ErrCodeAuthFail, out, err
 	}
-	// TODO: create token
 
+	// Create token
+	out.Token, err = auth.CreateToken(subToken)
+	if err != nil {
+		return response.ErrCodeAuthFail, out, err
+	}
 	return 200, out, nil
 }
 

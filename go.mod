@@ -5,6 +5,10 @@ go 1.23.1
 require github.com/swaggo/gin-swagger v1.6.0
 
 require (
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+)
+
+require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/KyleBanks/depth v1.2.1 // indirect
 	github.com/PuerkitoBio/purell v1.2.1 // indirect

@@ -68,6 +68,16 @@ func (c *cUserLogin) VerifyOTP(ctx *gin.Context) {
 	response.SuccessResponse(ctx, response.ErrCodeSuccess, result)
 }
 
+// User Login
+// @Summary      User Login
+// @Description  User Login
+// @Tags         account management
+// @Accept       json
+// @Produce      json
+// @Param        payload body model.LoginInput true "payload"
+// @Success      200  {object}  response.ResponseData
+// @Failure      500  {object}  response.ErrorResponseData
+// @Router       /user/login [post]
 func (c *cUserLogin) Login(ctx *gin.Context) {
 	var params model.LoginInput
 	err := ctx.ShouldBindJSON(&params)
